@@ -97,7 +97,7 @@
         <lombok.version>1.18.22</lombok.version>
         <main.basedir>${basedir}/../..</main.basedir>
         <docker.image.prefix>apacherocketmq</docker.image.prefix>
-        <spring.boot.version>2.6.0</spring.boot.version>
+        <spring.boot.version>2.7.11</spring.boot.version>
         <mockito-inline.version>3.3.3</mockito-inline.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <commons-pool2.version>2.4.3</commons-pool2.version>
@@ -108,13 +108,25 @@
         <cglib.version>2.2.2</cglib.version>
         <joor.version>0.9.6</joor.version>
         <bcpkix-jdk15on.version>1.68</bcpkix-jdk15on.version>
+        <fastjson.version>1.2.83_noneautotype</fastjson.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -125,6 +137,12 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons</artifactId>
             <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -160,6 +178,10 @@
                 <exclusion>
                     <groupId>ch.qos.logback</groupId>
                     <artifactId>logback-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>fastjson</artifactId>
+                    <groupId>com.alibaba</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -198,6 +220,10 @@
                 <exclusion>
                     <groupId>ch.qos.logback</groupId>
                     <artifactId>logback-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>fastjson</artifactId>
+                    <groupId>com.alibaba</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
